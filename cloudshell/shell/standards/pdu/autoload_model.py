@@ -11,7 +11,7 @@ from cloudshell.shell.standards.core.namespace_type import NameSpaceType
 
 
 class PDUPowerSocket(AbstractResource):
-    _RESOURCE_MODEL = "PDUPowerSocket"
+    _RESOURCE_MODEL = "PowerSocket"
     _RELATIVE_ADDRESS_PREFIX = "PS"
     _NAME_TEMPLATE = "Power Socket {}"
     _FAMILY_NAME = "CS_PowerSocket"
@@ -34,3 +34,7 @@ class PDUResourceModel(GenericResourceModel):
             PowerSocket = PDUPowerSocket
 
         return _PDUEntities
+
+    def connect_power_socket(self, power_socket: PDUPowerSocket) -> None:
+        """Connect power socket sub resource."""
+        self._add_sub_resource_with_type_restrictions(power_socket, [PDUPowerSocket])
