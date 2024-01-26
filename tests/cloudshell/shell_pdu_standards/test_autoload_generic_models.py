@@ -1,5 +1,5 @@
 from cloudshell.shell.standards.pdu.autoload_model import (
-    PDUPowerSocket,
+    PowerSocket,
     PDUResourceModel,
 )
 
@@ -18,7 +18,7 @@ def test_resource_model(api):
     assert resource.resource_model == "GenericResource"
     assert resource.cloudshell_model_name == f"{shell_name}.{resource.resource_model}"
 
-    assert resource.entities.PowerSocket == PDUPowerSocket
+    assert resource.entities.PowerSocket == PowerSocket
 
     assert isinstance(resource.unique_identifier, str)
     assert resource.unique_identifier
