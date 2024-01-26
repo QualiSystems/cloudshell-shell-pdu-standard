@@ -5,12 +5,12 @@ from cloudshell.shell.standards.core.autoload.resource_model import (
     ResourceAttribute,
 )
 
-__all__ = ["GenericResourceModel", "PDUPowerSocket", "PDUResourceModel"]
+__all__ = ["GenericResourceModel", "PowerSocket", "PDUResourceModel"]
 
 from cloudshell.shell.standards.core.namespace_type import NameSpaceType
 
 
-class PDUPowerSocket(AbstractResource):
+class PowerSocket(AbstractResource):
     _RESOURCE_MODEL = "PowerSocket"
     _RELATIVE_ADDRESS_PREFIX = "PS"
     _NAME_TEMPLATE = "Power Socket {}"
@@ -31,10 +31,10 @@ class PDUResourceModel(GenericResourceModel):
     @property
     def entities(self):
         class _PDUEntities:
-            PowerSocket = PDUPowerSocket
+            PowerSocket = PowerSocket
 
         return _PDUEntities
 
-    def connect_power_socket(self, power_socket: PDUPowerSocket) -> None:
+    def connect_power_socket(self, power_socket: PowerSocket) -> None:
         """Connect power socket sub resource."""
-        self._add_sub_resource_with_type_restrictions(power_socket, [PDUPowerSocket])
+        self._add_sub_resource_with_type_restrictions(power_socket, [PowerSocket])
