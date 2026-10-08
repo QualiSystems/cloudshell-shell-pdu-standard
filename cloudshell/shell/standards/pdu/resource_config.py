@@ -4,13 +4,14 @@ from attrs import define
 from attrs.validators import ge
 
 from cloudshell.shell.standards import attribute_names as attr_name
-from cloudshell.shell.standards.pdu import attribute_names as api_attr_name
 from cloudshell.shell.standards.core.resource_conf import BaseConfig, attr
 from cloudshell.shell.standards.resource_config_generic_models import (
     GenericCLIConfig,
     GenericConsoleServerConfig,
     GenericSnmpConfig,
 )
+
+from cloudshell.shell.standards.pdu import attribute_names as api_attr_name
 
 
 @define(slots=False, str=False)

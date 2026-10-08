@@ -1,7 +1,4 @@
-from cloudshell.shell.standards.pdu.autoload_model import (
-    PowerSocket,
-    PDUResourceModel,
-)
+from cloudshell.shell.standards.pdu.autoload_model import PDUResourceModel, PowerSocket
 
 
 def test_resource_model(api):
